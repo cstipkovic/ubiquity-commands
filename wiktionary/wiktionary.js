@@ -20,11 +20,8 @@ CmdUtils.CreateCommand({
 		  var apiUrl = "http://pt.wiktionary.org/w/api.php";
 		  var apiParams = {
 		    format: "json",
-		    action: "query",
-		    titles: args.object.text,
-		    rvprop: "content",
-		    prop: "revisions",
-		    rvparse: true
+		    action: "parse",
+		    page: args.object.text
 		  }
 		  
 		  CmdUtils.previewAjax(pblock, {
@@ -33,9 +30,10 @@ CmdUtils.CreateCommand({
 		    data: apiParams,
 		    dataType: "json",
 		    success: function (data, textStatus) {
-		      $.each(data.query.pages, function(i, item) {
-		        var content = $(item.revisions);
-		        Components.utils.reportError($(content));
+		      $.each(data.parse.text, function(i, item) {
+		        var content = $(item);
+		        
+		        Components.utils.reportError(content);
 		      });
 		    }
 		  });
