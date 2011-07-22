@@ -18,8 +18,8 @@ CmdUtils.CreateCommand({
   /* Function that makes Ajax request at ESPN.com.br RSS url */
   _getEspnBrNews: function getEspnBrNews__getEspnBrNews(pblock, args) {
     pblock.innerHTML = 
-      'Procurando no ESPN Brasil por <b>'+ args.object.text + 
-      '</b>.<br />';
+      'Procurando no ESPN Brasil por <b>'+ 
+      args.object.text +'</b>.<br /><br />';
 
     var urlSearchESPN_BR = 
       "http://espn.estadao.com.br/rss/"+ args.object.text;
@@ -32,12 +32,13 @@ CmdUtils.CreateCommand({
             pblock.innerHTML += 
               "<dt style=\"font-size: 0.9em\">"+
                 "<b><a href="+ $(this).find("link").text() +">"+ 
-                  $(this).find("title").text() +"</a></b>"+
+                $(this).find("title").text() +"</a></b>"+
               "</dt>";
 	  
             pblock.innerHTML += 
               "<dd style=\"font-size: 0.8em\">"+ 
-                $(this).find("description").text() +"</dd><br />";
+                $(this).find("description").text() +
+              "</dd><br />";
           )}; 
           pblock.innerHTML += "</dl>";
         } else {
@@ -57,6 +58,7 @@ CmdUtils.CreateCommand({
     this._getEspnBrNews(pblock, args);
   },
   execute: function execute (args) {
+    displayMessage("teste");
     Utils.openUrlInBrowser("http://espn.estadao.com.br/"+ args.object.text);
   }
 });
