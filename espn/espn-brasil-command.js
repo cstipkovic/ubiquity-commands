@@ -25,24 +25,27 @@ CmdUtils.CreateCommand({
     $.ajax({
       url: urlSearchESPN_BR,
       success: function(responseData) {
-        console.log("teste");
-        /*if ($(responseData).find('item').length > 1) {
-          pblock.innerHTML += "<dl>";
-          $(responseData).find("item").each(function () {
-            pblock.innerHTML += 
-              "<dt style=\"font-size: 0.9em\">"+
-                "<b><a href="+ $(this).find("link").text() +">"+ 
-                $(this).find("title").text() +"</a></b>"+
-              "</dt>";
-      
-            pblock.innerHTML += "<dd style=\"font-size: 0.8em\">"+ 
-                                  $(this).find("description").text() +
-                                "</dd><br />";
-          )};
+        var itemsNews = $(responseData).find('item');
+
+        if (itemsNews.length) {
+          pblock.innerHTML = "As dez últimas noticías encontradas sobre <b>"+ 
+                              args.object.text +"</b>"
+          pblock.innerHTML += "<br /><dl>";
+          for (i = 0; i < 10; i++) {
+            var itemContent = 
+              "<dt style='font-size: 0.9em'>" +
+                "<b><a href="+ $(itemsNews).eq(i).find("link").text() +">"+
+                $(itemsNews).eq(i).find("title").text() +"</a></b>"+
+              "</dt>"+
+              "<dd style='font-size: 0.8em'>"+ 
+                $(itemsNews).eq(i).find("description").text() +
+              "</dd><br />";
+            pblock.innerHTML += itemContent;
+          }
           pblock.innerHTML += "</dl>";
         } else {
-          pblock.innerHTML += 'Assunto não encontrado no ESPN.com.br';
-        }*/
+          pblock.innerHTML = 'Assunto não encontrado no ESPN.com.br';
+        }
       },
       error: function () {
         pblock.innerHTML += "Assunto não encontrado no ESPN.com.br";
