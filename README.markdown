@@ -6,7 +6,7 @@ https://wiki.mozilla.org/Labs/Ubiquity/
 ------------------------------------------------------------------------
 
 If you don't know Mozilla Ubiquity Add-on, you can get it here:
-* https://addons.mozilla.org/en-US/firefox/addon/9527/ (Stable XPI Version)
-* http://bitbucket.org/satyr/ubiquity/downloads (Development XPI Version)
+* https://addons.mozilla.org/en-US/firefox/addon/9527/ (Stable XPI Version)<br />
+* http://bitbucket.org/satyr/ubiquity/downloads (Development XPI Version)<br />
 
 Regards from Mozilla Ubiquity Community :)
