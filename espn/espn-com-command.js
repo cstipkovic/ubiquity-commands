@@ -22,9 +22,8 @@ CmdUtils.CreateCommand({
                           args.object.text +'</b>.<br /><br />';
 
     var seachString = args.object.text;
-    var urlSearchESPN = 'http://search.espn.go.com/rss/'+ 
+    var urlSearchESPN = "http://search.espn.go.com/rss/"+ 
                         seachString.replace(/\s/, "-");
-
     $.ajax({
       url: urlSearchESPN,
       success: function(responseData) {
