@@ -10,7 +10,7 @@ CmdUtils.CreateCommand({
   },
   license: "GPL",
   homepage: "http://github.com/ClauberStipkovic/ubiquity-commands",
-  icon: "http://espn.estadao.com.br/img/fe/favicon.gif",
+  icon: "http://a.espncdn.com/favicon.ico",
   arguments: [{
     role: "object",
     nountype: noun_arb_text,
